@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seafood Restaurant Menu</title>
+    <style>
+        body{
+            background-color: #AEBCC5;
+            font-family: 'Patrick Hand', cursive;
+            padding: 0%;
+            margin: 0%;
+        }
+
+        .cart {
+    border: 1px solid transparent;
+    padding: 10px;
+    position: absolute;
+    top: 90px;
+    right: 10px;
+    background-color: transparent;
+    z-index: 2; /* Ensure it's on top of other elements */
+}
+
+.cart h2 {
+    margin-top: 0;
+}
+
+.cart ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.cart ul li {
+    margin-bottom: 5px;
+}
+
+.cart button {
+    display: block;
+    margin: 10px auto;
+    background-color: #FF6600;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cart button:hover {
+    background-color: #E65500;
+}
+.cart{
+    color:white;
+}
+.hero-image {
+            background-image: url("menu1.webp");
+            background-color:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)); 
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            height: 700px;
+        }
+
+        .hero-image::after {
+    content: "";
+    background-color: rgba(0, 0, 0, 0.6); 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    z-index: 1; 
+}
+
+
+        .hero-text h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .hero-text button {
+            background-color: #FF6600;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .hero-text button:hover {
+            background-color: #E65500;
+        }
+
+        .menu-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5%;
+}
+
+.item-image img {
+    max-width: 50%;
+    border-radius: 10px;
+}
+
+.item-content {
+    flex: 1 ;
+    padding: 0 10px;
+}
+
+.item-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.add-to-cart, .remove-from-cart {
+    background-color: #FF6600;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.add-to-cart:hover, .remove-from-cart:hover {
+    background-color: #E65500;
+}
+
+
+.menu-buttons {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 5%;
+}
+
+.menu-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px; 
+    cursor: pointer;
+    margin: 0 10px; 
+}
+
+.menu-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05); 
+}
+.add-to-cart{
+    background-color: #FF6600;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 20px;
+            cursor: pointer;
+
+}
+.add-to-cart button:hover {
+            background-color: #E65500;
+        }
+
+        .menu-category-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.menu-category {
+    width: 30%;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #426777;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5%;
+}
+
+.item-image img {
+    max-width: 40%;
+    border-radius: 10px;
+}
+
+.item-content {
+    flex: 1;
+    padding: 0 10px;
+}
+
+.item-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+
+
+    .remove-from-cart {
+        background-color: #FF3300;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    .remove-from-cart:hover {
+        background-color: #E60000;
+    }
+
+    footer {
+  background-color:rgb(3, 29, 53);
+  color: #e1e5f3ee;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 40px;
+            color: #080707;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-size: 30px;
+            color: #111010;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+
+       
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo" style="font-size: 30px;">
+            AQUATIC   AROMA
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="#contact-container">Contact us</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero-image">
+        <div class="hero-text">
+          <h1 style="font-size:50px">HOME/MENU</h1>
+          <button id="explore-button"  onclick="scrollToChef()">explore</button>
+        </div>
+      </div>
+   
+    
+    <div class="menu-buttons">
+        <button class="menu-button" onclick="showCategory('appetizers')">Starters</button>
+        <button class="menu-button" onclick="showCategory('main-courses')">Main Courses</button>
+        <button class="menu-button" onclick="showCategory('desserts')">Desserts</button>
+    </div>
+    <div class="menu-category-container" id="menu-category-container">
+        <section class="menu-category" id="appetizers">
+            <h2>Appetizers</h2>
+            <div class="menu-item">
+                <div class="item-image">
+                    <img src="crablolipop.jpg" alt="Crab Lollipop">
+                </div>
+                <div class="item-content">
+                    <h3>Crab Lollipop</h3>
+                    <p>A delicious crab dish served with tangy sauce.</p>
+                    <span class="price">$15.99</span>
+                </div>
+                <div class="item-buttons">
+                    <button class="add-to-cart" onclick="addToCart('Crab Lollipop', 15.99)">Add to Cart</button>
+                    <button class="remove-from-cart" onclick="removeFromCart('Crab Lollipop', 15.99)">Remove</button>
+                </div>
+            </div>
+            <!-- Add more menu items as needed -->
+        </section>
+    </div>
+    
+    <div class="menu-category-container">
+        <section class="menu-category" id="main-courses">
+            <h2>Main Courses</h2>
+            <div class="menu-item">
+                <div class="item-image">
+                    <img src="fishcurry.jpg" alt="Grilled Salmon">
+                </div>
+                <div class="item-content">
+                    <h3>Grilled Salmon</h3>
+                    <p>Seasoned salmon fillet grilled to perfection.</p>
+                    <span class="price">$22.99</span>
+                </div>
+                <div class="item-buttons">
+                    <button class="add-to-cart" onclick="addToCart('Grilled Salmon', 22.99)">Add to Cart</button>
+                    <button class="remove-from-cart" onclick="removeFromCart('Grilled Salmon', 22.99)">Remove</button>
+                </div>
+            </div>
+            <!-- Add more menu items as needed -->
+        </section>
+    </div>
+    
+    <div class="menu-category-container">
+        <section class="menu-category" id="desserts">
+            <h2>Desserts</h2>
+            <div class="menu-item">
+                <div class="item-image">
+                    <img src="dessert 1.jpg" alt="Chocolate Mousse">
+                </div>
+                <div class="item-content">
+                    <h3>Chocolate Mousse</h3>
+                    <p>Rich and creamy chocolate mousse topped with fresh berries.</p>
+                    <span class="price">$10.99</span>
+                </div>
+                <div class="item-buttons">
+                    <button class="add-to-cart" onclick="addToCart('Chocolate Mousse', 10.99)">Add to Cart</button>
+                    <button class="remove-from-cart" onclick="removeFromCart('Chocolate Mousse', 10.99)">Remove</button>
+                </div>
+            </div>
+            <!-- Add more menu items as needed -->
+        </section>
+    </div>
+<footer>
+    <div class="footer-content">
+      <div class="contact-info">
+        <h2>Contact Information</h2>
+        <p>Email: <a href="mailto:info@aquaticaroma.com">info@aquaticaroma.com</a></p>
+        <p>Phone: +123-456-7890</p>
+        <p>Address: 123 Spice Street, Flavortown</p>
+      </div>
+      <div class="logo-footer">
+        <img src="3-removebg-preview.png" alt=" Footer Logo">
+      </div>
+    </div>
+  </footer>
+
+
+
+    <div class="cart">
+        <h2>Shopping Cart</h2>
+        <ul id="cart-items"></ul>
+        <p>Total: <span id="cart-total">$0.00</span></p>
+        <button class="checkout" onclick="checkout()">Checkout</button>
+    </div>
+
+    <script>
+        function showCategory(category) {
+    var categories = document.querySelectorAll('.menu-category');
+    categories.forEach(function(cat) {
+        cat.style.display = 'none';
+    });
+
+    document.getElementById(category).style.display = 'block';
+}
+
+
+let cartItems = [];
+
+function addToCart(itemName, itemPrice) {
+    cartItems.push({ name: itemName, price: itemPrice });
+    updateCart();
+}
+
+function updateCart() {
+    let cartElement = document.getElementById('cart-items');
+    let totalElement = document.getElementById('cart-total');
+    let total = 0;
+
+    cartElement.innerHTML = '';
+    cartItems.forEach(function(item) {
+        let listItem = document.createElement('li');
+        listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+        cartElement.appendChild(listItem);
+        total += item.price;
+    });
+
+    totalElement.textContent = `$${total.toFixed(2)}`;
+}
+
+function removeFromCart(itemName, itemPrice) {
+    cartItems = cartItems.filter(item => !(item.name === itemName && item.price === itemPrice));
+    updateCart();
+}
+
+
+function checkout() {
+    if(cartItems==0)
+    {
+        alert("no items in the cart");
+    }
+    else{
+    alert('Thank you for your order! Total: $' + cartItems.reduce((acc, item) => acc + item.price, 0).toFixed(2));
+    cartItems = [];
+    updateCart();
+    }
+}
+
+function scrollToChef() {
+    var element = document.getElementById("menu-category-container");
+    element.scrollIntoView({ behavior: "smooth" });
+}
+
+    </script>
+</body>
+</html>

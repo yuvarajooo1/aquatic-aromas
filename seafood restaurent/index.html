@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> aquatic aromas</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+        body {
+            background-color: #AEBCC5;
+            font-family: 'Patrick Hand', cursive;
+            padding: 0%;
+            margin: 0%;
+        }
+
+
+        searchBar {
+  width: 25%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+}
+
+#searchQueryInput {
+  width: 20%;
+  height: 2.8rem;
+  outline: none;
+  border: none;
+  border-radius: 1.625rem;
+  padding: 0 3.5rem 0 1.5rem;
+  font-size: 1rem;
+  margin-left: 70%;
+  background-color:transparent;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6); 
+}
+
+#searchQuerySubmit {
+  width: 2.5rem;
+  height: 2.0rem;
+  margin-left: -3.5rem;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+#searchQuerySubmit:hover {
+  cursor: pointer;
+}
+#searchqueryInput:hover{
+    background-color: #6d818d50;
+}
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 40px;
+            color: #080707;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-size: 30px;
+            color: #111010;
+        }
+
+        .logo img {
+            height: 70px;
+            
+        }
+
+        .text {
+            justify-content: center;
+            display: flex;
+            right: 60%;
+            margin-top: -10%; /* Adjusted margin-top */
+            z-index: 1;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .text {
+            font-size: 40px;
+            
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-container> img {
+            width: 20%;
+            height: 20%;
+            padding: 20px;
+        }
+
+        .frame {
+           
+            border-radius: 50%;
+            overflow: hidden;
+            width: 300px;
+            height: 300px;
+            transition: transform 0.5s ease-in-out; 
+            margin-left:15%;
+        }
+
+        .frame:hover {
+            transform: scale(1.05); 
+        }
+
+        img {
+            display: flex;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        
+
+        .history-section {
+            display: flex;
+            justify-content:space-around;
+            align-items: center;
+            margin: 100px;
+            padding: 2rem;
+           
+        }
+
+        .history-image {
+            flex: 1;
+            text-align: left;
+        }
+
+        .history-image img {
+            max-width: 70%;
+            height: auto;
+            border-radius: 50px;
+        }
+
+        .history-content {
+            flex: 1;
+            text-align: center;
+        }
+
+        .history-content h2 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .history-content p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .history-link {
+            text-align: right;
+            margin-top: 10px;
+           
+        }
+
+        .history-link a {
+            font-size: 40px;
+            text-decoration: none;
+            color: #333;
+        }
+
+
+      
+       .history-link a {
+  color: #18272F;
+  position: relative;
+  text-decoration: none;
+}
+
+ 
+ .history-link a::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+  background-color: #18272F;
+  bottom: 0;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform .3s ease-in-out;
+}
+
+ 
+ .history-link a:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+
+        
+        .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center; 
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    display: inline-block; 
+    margin: 10px; 
+}
+
+        .gallery-item img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            opacity: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item .overlay p {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+        
+
+        .chef-section {
+            display: flex;
+            justify-content:space-around;
+            align-items: center;
+            margin: 100px;
+          
+        }
+
+        .chef-text {
+            flex: 1;
+            text-align: center;
+        }
+
+        .chef-text h2 {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        .chef-text p {
+            font-size: 40px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .chef-image {
+            flex: 1;
+            text-align: right;
+            margin-left: 20%;
+        }
+
+        .chef-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius:20%;
+        }
+        .chef-link {
+            text-align: left;
+            margin-top: 10px;
+           
+        }
+
+
+        .chef-link a {
+            font-size: 40px;
+            text-decoration: none;
+            color: #333;   
+        }
+
+        .chef-link a {
+  color: #18272F;
+  position: relative;
+  text-decoration: none;
+}
+
+ 
+ .chef-link a::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+  background-color: #18272F;
+  bottom: 0;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform .3s ease-in-out;
+}
+
+ 
+ .chef-link a:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+
+
+        footer {
+  background-color:rgb(3, 29, 53);
+  color: #e1e5f3ee;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+.contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px;
+            background-color:transparent;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-top: 50px;
+        }
+
+        .contact-container h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .contact-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+            background-color: transparent;
+        }
+
+        .contact-textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+            resize: none;
+            background-color: transparent;
+        }
+
+        .contact-button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color:transparent;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .contact-button:hover {
+           background-color:rgb(48, 68, 68);
+        }
+        
+        
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo" style="font-size: 30px;">
+            AQUATIC   AROMA
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="#contact-container">Contact us</a></li>
+        </ul>
+    </nav>
+
+    <div class="Image"> 
+        <div class="wrapper">
+
+            <div class="searchBar">
+                <input id="searchQueryInput" type="text" name="searchQueryInput" placeholder="Search" value="" />
+                <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit"></button>
+            </div>
+
+            <div class="frame">
+                <img id="frameImage" src="rozmarin.webp" alt="Transparent Image">
+            </div>
+
+            <div class="container">
+                <div class="text">
+                    <h1>Fresh from the sea</h1><br>
+                    <p>To your table</p>
+                </div>
+                <div class="image-container">
+                    <img src="i1.jpg" alt="Image 1">
+                    <img src="i2.jpg" alt="Image 2">
+                    <img src="i3.jpg" alt="Image 3">
+                    <img src="i4.jpg" alt="Image 4">
+                </div>
+            </div>
+
+        
+            <div class="history-section">
+                <div class="history-image">
+                    <img src="res.jpg" alt="History">
+                </div>
+                <div class="history-content">
+                    <h2>Our History</h2>
+                    <p style="font-size: 40px;">For the best in food, service, value and atmosphere, you can’t choose our restaurant. We guarantee you the freshest seafood, delivered daily to our dock, prepared to your liking.</p>
+                    <div class="history-link">
+                        <a href="about.htmls">Learn More  &gt;</a>
+                    </div>
+                </div>
+            </div>
+
+    
+
+            <h1 style="font-size:40px; margin-left:45%;">MENU</h1>
+            <div class="gallery">
+                
+                <div class="gallery-item">
+                    <img src="karimeen polichathu 1.JPG" alt="Food 1">
+                    <div class="overlay">
+                        <p>karimeen polichathu</p>
+                        <p>Rs.350</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="pepper-delight-crab-roast-3.jpg" alt="Food 2">
+                    <div class="overlay">
+                        <p>pepper delight crab roast</p>
+                        <p>Rs.400</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="Prawn_Ghee_Pepper_Masala_With_Garlic.jpg" alt="Food 2">
+                    <div class="overlay">
+                        <p>prawn ghee pepper masala</p>
+                        <p>Rs.300</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="tandoori fish kebab.jpg" alt="Food 2">
+                    <div class="overlay">
+                        <p>tandoori fish kebab</p>
+                        <p>Rs.250</p>
+                    </div>
+                </div>
+                
+                
+            </div>
+            
+
+            <div class="chef-section">
+                <div class="chef-text">
+                    <h2>Chef's Special</h2>
+                    <p>Meet our talented chef who creates delicious and mouthwatering dishes that will tantalize your taste buds. With years of culinary experience, our chef brings a unique blend of flavors to every dish.</p>
+                    <p></p>
+                    <div class="chef-link">
+                        <a href="menu.html">Learn More &gt;</a>
+                    </div>
+                </div>
+                <div class="chef-image">
+                    <img src="chef.png" alt="Chef">
+                    
+                </div>
+            </div>
+
+
+            
+<div class="contact-container">
+                <h2>Contact Us</h2>
+                <form>
+                    <input class="contact-input" type="text" name="name" placeholder="Your Name" required>
+                    <br>
+                    <input class="contact-input" type="email" name="email" placeholder="Your Email" required>
+                    <br>
+                    <textarea class="contact-textarea" name="message" placeholder="Your Message" rows="6" required></textarea>
+                    <br>
+                    <button class="contact-button" type="submit">Send Message</button>
+                </form>
+            </div>
+
+
+            <footer>
+                <div class="footer-content">
+                  <div class="contact-info">
+                    <h2>Contact Information</h2>
+                    <p>Email: <a href="mailto:info@aquaticaroma.com">info@aquaticaroma.com</a></p>
+                    <p>Phone: +123-456-7890</p>
+                    <p>Address: 123 Spice Street, Flavortown</p>
+                  </div>
+                  <div class="logo-footer">
+                    <img src="3-removebg-preview.png" alt=" Footer Logo">
+                  </div>
+                </div>
+              </footer>
+
+
+
+            
+
+            <section id="copyright">
+                <div class="container" style="background-color:rgb(3, 29, 53);">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <h3 style="margin-left: 45%;">AQUATIC AROMAS</h3>
+                            <p  style="margin-left: 45%;">Copyright © aquatic aromas</p>
+                            
+            
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var frameImage = document.getElementById('frameImage');
+            var images = ['lemon.webp', 'shrimp.webp', 'fish.webp']; // Add the paths to your images
+            var currentImageIndex = 0;
+
+            function changeImage() {
+                frameImage.src = images[currentImageIndex];
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                setTimeout(changeImage, 2000); // Change image every 2 seconds (2000 milliseconds)
+            }
+
+            changeImage();
+        });
+
+
+
+
+    </script>
+
+</body>
+</html>
